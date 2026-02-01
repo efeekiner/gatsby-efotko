@@ -16,10 +16,20 @@ const BlogPost = ({ data, children }: React.PropsWithChildren<BlogPostProps>) =>
   return (
     <Layout pageTitle={data.mdx?.frontmatter?.title ?? "Blog Post"}>
       <p>Posted: {data.mdx?.frontmatter?.date}</p>
-      {image && (<GatsbyImage
+      {image && (<><GatsbyImage
         image={image}
         alt={data.mdx?.frontmatter?.hero_image_alt ?? 'Blog post hero image'}
-      />)}
+      />
+        <p>
+          Photo Credit:{" "}
+          <a href={data.mdx?.frontmatter?.hero_image_credit_link ?? '#'} target="_blank" rel="noopener noreferrer">
+            {data.mdx?.frontmatter?.hero_image_credit_text}
+          </a>
+        </p>
+      </>)
+
+      }
+
       {children}
     </Layout>
   )
