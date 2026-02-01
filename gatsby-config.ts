@@ -11,10 +11,8 @@ const config: GatsbyConfig = {
     description: "A blog written by me, about stuff that I find interesting.",
     image: `/ekiner-logo.png`,
     siteUrl: `https://ekiner.dev`,
+    twitterUsername: `@MehmetEfeEkiner`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-image",

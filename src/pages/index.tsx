@@ -2,7 +2,7 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
-import Seo from '../components/seo'
+import { SEO } from '../components/seo'
 
 
 const IndexPage = () => {
@@ -18,4 +18,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <Seo title="Home Page" />
+export const Head = () => <SEO title="Home Page" />

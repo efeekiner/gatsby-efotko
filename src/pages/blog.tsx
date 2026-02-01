@@ -1,33 +1,37 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import Seo from '../components/seo'
+import { SEO } from '../components/seo'
 
-const BlogPage = ({ data }) => {
-    console.log({ data })
-    return (
-        <Layout pageTitle="My Blog Posts">
-            <ul>
-                {
-                    data.allMdx.nodes.map(node => (
-                        <article key={node.id}>
-                            <h2>
-                                {node.frontmatter.title}
-                            </h2>
-                            <p>Posted: {node.frontmatter.date}</p>
-                            <p>{node.excerpt}</p>
-                        </article>
-
-                    ))}
-            </ul>
-        </Layout>
-    )
+interface BlogPageProps {
+  data: Queries.BlogQueryQuery
 }
 
-export const Head = () => <Seo title="My Blog Posts" />
+const BlogPage = ({ data }: BlogPageProps) => {
+
+  return (
+    <Layout pageTitle="My Blog Posts">
+      <ul>
+        {
+          data.allMdx.nodes.map(node => (
+            <article key={node.id}>
+              <h2>
+                {node.frontmatter?.title ?? 'No Title'}
+              </h2>
+              <p>Posted: {node.frontmatter?.date ?? 'No Date'}</p>
+              <p>{node.excerpt}</p>
+            </article>
+
+          ))}
+      </ul>
+    </Layout>
+  )
+}
+
+export const Head = () => <SEO title="My Blog Posts" />
 
 export const query = graphql`
-  query {
+  query BlogQuery {
     allMdx(sort: { frontmatter: { date: DESC }}) {
       nodes {
         frontmatter {
