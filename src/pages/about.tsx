@@ -5,7 +5,10 @@ import { SEO } from "../components/seo";
 const AboutPage = () => {
   return (
     <Layout pageTitle="About Me">
-      <p>Hi, I'm the creator of this Gatsby site.</p>
+      <p>This is Efe. I'm a Software Engineer.</p>
+      <p>I have built this personal page to write about random things I find interesting.</p>
+      <p>I am hoping to share my knowledge and experiences with others, while learning and reinforcing my own understanding of some topics.</p>
+      <p>Feel free to check out my blog posts!</p>
     </Layout>
   );
 };
