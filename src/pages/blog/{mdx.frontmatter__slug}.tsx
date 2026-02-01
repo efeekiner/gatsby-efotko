@@ -36,7 +36,7 @@ const BlogPost = ({ data, children }: React.PropsWithChildren<BlogPostProps>) =>
 }
 
 export const query = graphql`
-  query BlogPost($id: String!) {
+  query BlogPost($id: String) {
     mdx(id: {eq: $id}) {
       frontmatter {
         title
