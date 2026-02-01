@@ -8,6 +8,7 @@ import {
     navLinkText,
     siteTitle
 } from './layout.module.css';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.ReactNode }) => {
     const data = useStaticQuery(graphql`
@@ -22,7 +23,13 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
 
     return (
         <div className={container}>
-            <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+            {/* <header className={siteTitle}>
+                {data.site.siteMetadata.title}
+            </header> */}
+            <header>
+                <StaticImage src="../images/ekiner-logo.png" alt={data.site.siteMetadata.title} />
+
+            </header>
             <nav>
                 <ul className={navLinks}>
                     <li className={navLinkItem}>
