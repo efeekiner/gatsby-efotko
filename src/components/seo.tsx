@@ -30,7 +30,7 @@ export const SEO = ({ title, description, pathname, children }: SEOProps) => {
       <meta name="twitter:description" content={seo.description ?? ""} />
       <meta name="twitter:image" content={seo.image} />
       <meta name="twitter:creator" content={seo.twitterUsername ?? ""} />
-      <link rel="icon" href="/ekiner-icon.png" />
+      <link rel="icon" href="/ekiner-icon.ico" />
       {children}
     </>
   )
