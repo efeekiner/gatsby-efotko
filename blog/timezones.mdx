@@ -1,5 +1,6 @@
 ---
 title: "Naive and Aware Timezones"
+slug: "timezones"
 date: "2024-06-02"
 author: "Efe"
 ---
@@ -19,27 +20,22 @@ A timezone is a geographical region where the local time is the same across the 
 ## Structure and Complexity
 
 1. **Geographical Boundaries**:
-
    - **Ideal Timezone Structure**: The Earth is divided into 24 timezones, each 15 degrees of longitude wide, reflecting the 24 hours in a day.
    - **Practical Adjustments**: Actual timezones often deviate from this ideal due to political borders, economic regions, and practical needs. For instance, China, despite its vast width, uses a single timezone (China Standard Time).
 
 2. **Daylight Saving Time (DST)**:
-
    - **Purpose**: DST is intended to make better use of daylight during the evening by moving clocks forward in the spring ("spring forward") and backward in the fall ("fall back").
    - **Variability**: The start and end dates of DST vary between countries and even within countries, adding complexity. For example, the United States begins DST on the second Sunday in March and ends it on the first Sunday in November, while the European Union starts DST on the last Sunday in March and ends it on the last Sunday in October.
 
 3. **Historical Changes**:
-
    - **Dynamic Adjustments**: Timezone boundaries and DST rules are not static and can change due to political, economic, or social reasons. For example, in 2015, North Korea created its own timezone by setting the clocks back 30 minutes.
    - **Database Management**: Systems like the IANA Time Zone Database maintain records of historical changes and current rules, requiring constant updates.
 
 4. **International Dateline**:
-
    - **Function**: The International Date Line (IDL) is an imaginary line running mostly along the 180-degree meridian in the middle of the Pacific Ocean. Crossing the IDL from east to west results in moving to the previous calendar day, while crossing from west to east moves you to the next day.
    - **Adjustments**: The IDL deviates in places to avoid splitting countries and territories into different days. For example, Kiribati and Samoa have adjusted their positions relative to the IDL for economic and social reasons.
 
 5. **UTC Offsets**:
-
    - **Standard Offsets**: Timezones are typically described by their offset from UTC, such as UTC+1, UTC-5, etc.
    - **Non-standard Offsets**: Some regions use offsets in increments of 30 or 45 minutes, such as India (UTC+5:30) and Nepal (UTC+5:45).
 
@@ -50,7 +46,6 @@ A timezone is a geographical region where the local time is the same across the 
 ## Technological Implications
 
 1. **Computing and Databases**:
-
    - **Timekeeping Systems**: Modern computing systems rely on accurate timezone data for scheduling, logging events, and coordinating activities across regions.
    - **Time Zone Databases**: Databases like the IANA Time Zone Database keep track of timezone rules and changes, providing essential updates to systems worldwide.
 
@@ -66,26 +61,21 @@ A timezone is a geographical region where the local time is the same across the 
 
 In summary, while the basic concept of a timezone is simple, the implementation involves a complex interplay of geographical, historical, political, and technological factors that require careful management and continuous updates.
 
-
-
 TLDR;
 Datetimes;
-* Naive: no bound time zone
-* Aware: bound to a time zone
-Timestamps;
-* unix: it's a specific type of aware datetime. UTC
-* system: can be naive or aware.
 
+- Naive: no bound time zone
+- Aware: bound to a time zone
+  Timestamps;
+- unix: it's a specific type of aware datetime. UTC
+- system: can be naive or aware.
 
 A `datetime` value can either be "naive" or "aware", depending on whether it includes timezone information.
 
 - A "naive" datetime is not aware of timezones. It represents a certain date and time, but it doesn't specify in which timezone that date and time are. It's just a bare date and time. In Python, for example, a `datetime` object is naive by default.
-    
 - An "aware" datetime does include timezone information. It represents a specific moment in time that is the same everywhere in the world. For example, the moment when a new year starts in UTC time is different from the moment when a new year starts in New York time. But if you represent these moments with aware datetimes, they can be compared directly.
-    
 
 In many programming languages and databases, you can choose whether to use naive or aware datetimes. However, it's generally recommended to use aware datetimes, especially if your application deals with different timezones. This can help avoid confusion and make it easier to compare dates and times.
-
 
 A Unix timestamp is a specific type of "aware" datetime. It represents the number of seconds that have passed since 00:00:00 Thursday, 1 January 1970, Coordinated Universal Time (UTC), minus leap seconds. Because it's based on UTC, a Unix timestamp represents the same moment in time everywhere in the world.
 
