@@ -8,6 +8,8 @@ const config: GatsbyConfig = {
   }),
   siteMetadata: {
     title: `Ekiner.dev Blog`,
+    description: "A blog written by me, about stuff that I find interesting.",
+    image: `/ekiner-logo.png`,
     siteUrl: `https://ekiner.dev`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
