@@ -4,3 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Disable parallel query processing to prevent Sharp memory issues
+  GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "false"
+  # Limit CPU usage for Sharp image processing
+  GATSBY_CPU_COUNT = "1"
